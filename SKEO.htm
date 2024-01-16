@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  SKEO
+ </title>
+ <link href="HTMLFiles/SKEO.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ SKEO
+</p>
+
+
+
+<p class="Subtitle">
+ <span style='font-weight: bold;'>S</span>later-<span style='font-weight: bold;'>K</span>oster LCAO tight-binding modeling with <span style='font-weight: bold;'>E</span>volutionary <span style='font-weight: bold;'>O</span>ptimization
+</p>
+
+
+
+<p class="Subsection">
+ <a id="test"></a>
+ Load NC algebra library
+</p>
+
+
+
+<p class="Text">
+ Load noncommutative algebra library:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_1.gif" alt="SKEO_1.gif" width="1042" height="96" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/SKEO_2.png" alt="SKEO_2.png" width="491" height="20" style="vertical-align:middle;" usemap="#map_2" />
+<map name="map_2">
+<area shape="rect" coords="0,19,18,1" title="Dynamic[RawBoxes[FEPrivate`FrontEndResource[FEStrings, messageMenuTooltip]]]" nohref="" />
+</map>
+</p>
+
+<p class="Subsection">
+ Load SKEO library
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_3.gif" alt="SKEO_3.gif" width="368" height="54" style="vertical-align:middle" />
+</p>
+
+<p class="Chapter">
+ TMDC monolayer : 3-band model
+</p>
+
+
+
+<p class="Text">
+ TBA
+</p>
+
+
+
+<p class="Chapter">
+ TMDC monolayer: 11-band model
+</p>
+
+
+
+<p class="Text">
+ In this section we follow the model of <span><span><img src="HTMLFiles/SKEO_4.png" alt="SKEO_4.png" width="31" height="22" style="vertical-align:middle" /></span></span> monolayers introduced in https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.085153
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_5.gif" alt="SKEO_5.gif" width="370" height="248" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now, let&rsquo;s define basis orbitals (we are working in a basis of cubic harmonics: https://en.wikipedia.org/wiki/Cubic_harmonic)<br />Note that some of basis elements&nbsp;&nbsp;(<span style='font-style: italic;'>PE</span> and <span style='font-style: italic;'>PO</span> representing chalcogenide dimer) are composed of orbitals localized on different lattice nodes. 
+</p>
+
+
+
+<p class="Section">
+ Basis definition
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_6.gif" alt="SKEO_6.gif" width="633" height="580" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Collect all basis elements : 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_7.png" alt="SKEO_7.png" width="513" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Hoppings definition
+</p>
+
+
+
+<p class="Text">
+ Now define Matrix of hoppings for the each possible bond (we assume Next Nearest Neighbour approximation)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_8.gif" alt="SKEO_8.gif" width="951" height="293" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Hoppings in our basis. Note that hoppings between dimers (consisting of orbitals at different nodes) are combined from multiple possibilities, with the option that some of them may be omitted (using &ldquo;0&rdquo; entry). &#8232;In our case <span style='font-style: italic;'>&lt;up-element, down-element | up-element, down-element&gt;</span> element has 4 possible hoppings to be defined <span style='font-style: italic;'>{&lt;up,up&gt;, &lt;up,down&gt;, &lt;down|up&gt;, &lt;down|down&gt;}</span>.&#8232;Here we decided to skip more distant mixed <span style='font-style: italic;'>up-down</span> and <span style='font-style: italic;'>down-up</span> hoppings.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_9.png" alt="SKEO_9.png" width="458" height="249" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We also ommit hoppings between even and odd orbitals (zeros in Hop matrix) .
+</p>
+
+
+
+<p class="Section">
+ Tests
+</p>
+
+
+
+<p class="Subsection">
+ Single hoppings
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_10.png" alt="SKEO_10.png" width="249" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_11.png" alt="SKEO_11.png" width="829" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_12.png" alt="SKEO_12.png" width="752" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_13.png" alt="SKEO_13.png" width="232" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_14.png" alt="SKEO_14.png" width="461" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_15.png" alt="SKEO_15.png" width="279" height="50" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Matrix elements
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_16.png" alt="SKEO_16.png" width="392" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_17.png" alt="SKEO_17.png" width="606" height="32" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_18.png" alt="SKEO_18.png" width="667" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_19.png" alt="SKEO_19.png" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_20.png" alt="SKEO_20.png" width="399" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_21.png" alt="SKEO_21.png" width="797" height="40" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_22.png" alt="SKEO_22.png" width="1041" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_23.png" alt="SKEO_23.png" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_24.png" alt="SKEO_24.png" width="406" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_25.png" alt="SKEO_25.png" width="531" height="32" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_26.png" alt="SKEO_26.png" width="594" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_27.png" alt="SKEO_27.png" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_28.png" alt="SKEO_28.png" width="422" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_29.png" alt="SKEO_29.png" width="764" height="32" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_30.png" alt="SKEO_30.png" width="1043" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_31.png" alt="SKEO_31.png" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_32.png" alt="SKEO_32.png" width="546" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_33.png" alt="SKEO_33.png" width="1002" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_34.png" alt="SKEO_34.png" width="809" height="130" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_35.png" alt="SKEO_35.png" width="829" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_36.png" alt="SKEO_36.png" width="554" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_37.png" alt="SKEO_37.png" width="1011" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_38.png" alt="SKEO_38.png" width="1039" height="102" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_39.png" alt="SKEO_39.png" width="929" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_40.png" alt="SKEO_40.png" width="546" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_41.png" alt="SKEO_41.png" width="1082" height="80" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_42.png" alt="SKEO_42.png" width="1058" height="100" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_43.png" alt="SKEO_43.png" width="1006" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_44.png" alt="SKEO_44.png" width="546" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_45.png" alt="SKEO_45.png" width="1011" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_46.png" alt="SKEO_46.png" width="1071" height="56" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_47.png" alt="SKEO_47.png" width="920" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_48.png" alt="SKEO_48.png" width="546" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_49.png" alt="SKEO_49.png" width="981" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_50.png" alt="SKEO_50.png" width="1049" height="100" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_51.png" alt="SKEO_51.png" width="1015" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_52.png" alt="SKEO_52.png" width="562" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_53.png" alt="SKEO_53.png" width="764" height="32" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_54.png" alt="SKEO_54.png" width="1051" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_55.png" alt="SKEO_55.png" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_56.png" alt="SKEO_56.png" width="554" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_57.png" alt="SKEO_57.png" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Chapter">
+ TMDC heterostructure
+</p>
+
+
+
+<p class="Text">
+ In this section we introduce TB model for stacked TMDC heterostructure. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_58.gif" alt="SKEO_58.gif" width="517" height="171" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Interalyer hoppings
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_59.gif" alt="SKEO_59.gif" width="481" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Let' s define interalyer hoppings &lt;top layer | bottom layer&gt; (intralayer are the same as in the previous chapter):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_60.gif" alt="SKEO_60.gif" width="966" height="182" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_61.png" alt="SKEO_61.png" width="404" height="144" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_62.png" alt="SKEO_62.png" width="325" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_63.png" alt="SKEO_63.png" width="352" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_64.png" alt="SKEO_64.png" width="940" height="61" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_65.png" alt="SKEO_65.png" width="1057" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_66.png" alt="SKEO_66.png" width="798" height="61" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_67.png" alt="SKEO_67.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_68.png" alt="SKEO_68.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_69.png" alt="SKEO_69.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_70.png" alt="SKEO_70.png" width="1057" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_71.png" alt="SKEO_71.png" width="815" height="61" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_72.png" alt="SKEO_72.png" width="1057" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_73.png" alt="SKEO_73.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_74.png" alt="SKEO_74.png" width="77" height="64" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_75.png" alt="SKEO_75.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_76.png" alt="SKEO_76.png" width="798" height="61" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_77.png" alt="SKEO_77.png" width="1057" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_78.png" alt="SKEO_78.png" width="940" height="61" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_79.png" alt="SKEO_79.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_80.png" alt="SKEO_80.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_81.png" alt="SKEO_81.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_82.png" alt="SKEO_82.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_83.png" alt="SKEO_83.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_84.png" alt="SKEO_84.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_85.png" alt="SKEO_85.png" width="513" height="83" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_86.png" alt="SKEO_86.png" width="573" height="84" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_87.png" alt="SKEO_87.png" width="555" height="83" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_88.png" alt="SKEO_88.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_89.png" alt="SKEO_89.png" width="77" height="64" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_90.png" alt="SKEO_90.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_91.png" alt="SKEO_91.png" width="565" height="84" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_92.png" alt="SKEO_92.png" width="464" height="83" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_93.png" alt="SKEO_93.png" width="573" height="84" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_94.png" alt="SKEO_94.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_95.png" alt="SKEO_95.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_96.png" alt="SKEO_96.png" width="35" height="36" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_97.png" alt="SKEO_97.png" width="547" height="83" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_98.png" alt="SKEO_98.png" width="565" height="84" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/SKEO_99.png" alt="SKEO_99.png" width="513" height="83" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_100.png" alt="SKEO_100.png" width="179" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_101.png" alt="SKEO_101.png" width="885" height="42" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_102.png" alt="SKEO_102.png" width="1043" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_103.gif" alt="SKEO_103.gif" width="419" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_104.png" alt="SKEO_104.png" width="179" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_105.png" alt="SKEO_105.png" width="501" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_106.png" alt="SKEO_106.png" width="1043" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_107.gif" alt="SKEO_107.gif" width="419" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_108.png" alt="SKEO_108.png" width="872" height="68" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_109.png" alt="SKEO_109.png" width="135" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_110.png" alt="SKEO_110.png" width="1043" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_111.gif" alt="SKEO_111.gif" width="414" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_112.gif" alt="SKEO_112.gif" width="1490" height="312" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_113.png" alt="SKEO_113.png" width="141" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_114.gif" alt="SKEO_114.gif" width="613" height="482" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_115.png" alt="SKEO_115.png" width="141" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_116.gif" alt="SKEO_116.gif" width="612" height="482" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_117.png" alt="SKEO_117.png" width="141" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_118.gif" alt="SKEO_118.gif" width="605" height="476" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/SKEO_119.png" alt="SKEO_119.png" width="141" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/SKEO_120.gif" alt="SKEO_120.gif" width="595" height="468" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>
